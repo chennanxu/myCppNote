@@ -2,18 +2,23 @@
 #include <utility>
 #include <string.h>
 
+namespace cLib
+{
 class String
 {
 public:
-	String() :data_(new char[1]), len_(0)
+	String() 
+	  :data_(new char[1]), len_(0)
 	{
 		*data_ = '\0';
 	}
-	String(char* str) :len_(strlen(str)), data_(new char[len_ + 1])
+	String(char* str) 
+	  :len_(strlen(str)), data_(new char[len_ + 1])
 	{
 		strcpy(data_, str);
 	}
-	String(const String& rhs) :len_(rhs.size()), data_(new char[len_ + 1])
+	String(const String& rhs) 
+	  :len_(rhs.size()), data_(new char[len_ + 1])
 	{
 		strcpy(data_, rhs.c_str());
 	}
@@ -52,3 +57,6 @@ private:
 	char* data_;
 	
 };
+
+	
+}
